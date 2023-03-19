@@ -1,48 +1,34 @@
 package com.example.search.blogSearch.domain.factory;
 
-import com.example.search.blogSearch.domain.exceptions.InvalidSearchSourceTypeException;
-import com.example.search.blogSearch.domain.service.KaKaoSearchService;
-import com.example.search.blogSearch.domain.service.NaverSearchService;
+import com.example.search.blogSearch.constants.SearchSourceType;
 import com.example.search.blogSearch.domain.service.SearchService;
-import com.example.search.blogSearch.domain.service.dto.KakaoSearchDto;
-import com.example.search.blogSearch.domain.service.dto.NaverSearchDto;
-import com.example.search.blogSearch.domain.service.dto.SearchDto;
-import com.example.search.blogSearch.infrastructure.rest.feign.SearchKakaoFeignClient;
+import com.google.common.collect.Maps;
+import java.util.Map;
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
 @RequiredArgsConstructor
 public class SearchServiceFactory {
 
-  private static KaKaoSearchService kaKaoSearchService;
+  private final Map<SearchSourceType, SearchService> services;
 
-  private static NaverSearchService naverSearchService;
-
-  private static SearchKakaoFeignClient searchKakaoFeignClient;
-
-  private static boolean isInit = false;
-
-  public static SearchService getService(SearchDto dto) {
-    init();
-
-    if (dto instanceof KakaoSearchDto) {
-      return kaKaoSearchService;
-    }
-
-    if (dto instanceof NaverSearchDto) {
-      return naverSearchService;
-    }
-
-    throw new InvalidSearchSourceTypeException();
+  @Autowired
+  public SearchServiceFactory(Set<SearchService> managersSet) {
+    this.services = Maps.newHashMap();
+    managersSet.forEach(manager -> {
+      if (manager.getSearchSourceType() == SearchSourceType.KAKAO_SOURCE) {
+        services.put(manager.getSearchSourceType(), manager);
+      } else {
+        services.put(manager.getSearchSourceType(), manager);
+      }
+    });
   }
 
-  public static synchronized void init() {
-    if (!isInit) {
-      kaKaoSearchService = new KaKaoSearchService(searchKakaoFeignClient);
-      naverSearchService = new NaverSearchService();
-      isInit = true;
-    }
+  public SearchService find(SearchSourceType type) {
+    return services.get(type);
   }
 
 }

@@ -13,6 +13,9 @@ ext {
 	springCloudVersion = '2021.0.5'
 	// spring cloud version (Spring Boot 2.7.x compatibility)
 	springCloudAwsVersion = '2.4.2'
+	lombokVersion = '1.18.24'
+	lombokMapstructBindVersion = '0.2.0'
+	mapStructVersion = '1.5.3.Final'
 }
 
 configurations {
@@ -48,6 +51,9 @@ dependencies {
 	implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.10.0'
 	testImplementation 'org.springframework.cloud:spring-cloud-contract-wiremock'
 
+	/**************** MapStruct ******************/
+	implementation "org.mapstruct:mapstruct:${mapStructVersion}"
+	annotationProcessor "org.mapstruct:mapstruct-processor:${mapStructVersion}", "org.projectlombok:lombok:${lombokVersion}", "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindVersion}"
 
 }
 

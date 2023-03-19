@@ -1,5 +1,6 @@
 package com.example.search.blogSearch.domain.service.dto;
 
+import lombok.Builder;
 import lombok.Getter;
 
 @Getter

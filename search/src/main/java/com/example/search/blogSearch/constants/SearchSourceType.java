@@ -1,13 +1,11 @@
 package com.example.search.blogSearch.constants;
 
 
-import com.example.search.constants.ResponseCode;
 import com.google.common.collect.ImmutableMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import lombok.Getter;
-import org.springframework.http.HttpStatus;
 
 @Getter
 public enum SearchSourceType {

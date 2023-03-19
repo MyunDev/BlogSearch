@@ -1,5 +1,6 @@
 package com.example.search.blogSearch.domain.service;
 
+import com.example.search.blogSearch.constants.SearchSourceType;
 import com.example.search.blogSearch.domain.service.dto.KakaoSearchDto;
 import com.example.search.blogSearch.domain.service.dto.SearchResultDto;
 import com.example.search.blogSearch.infrastructure.rest.feign.SearchKakaoFeignClient;
@@ -14,6 +15,11 @@ public class KaKaoSearchService implements SearchService<KakaoSearchDto>{
   private final SearchKakaoFeignClient searchKakaoFeignClient;
 
   private final String restApiKey = "KakaoAK 0843e64cd14a049e15aea40c5451f049";
+
+  @Override
+  public SearchSourceType getSearchSourceType() {
+    return SearchSourceType.KAKAO_SOURCE;
+  }
 
   @Override
   public SearchResultDto search(KakaoSearchDto kakaoSearchDto) {
