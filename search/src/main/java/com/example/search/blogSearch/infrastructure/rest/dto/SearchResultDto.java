@@ -1,13 +1,15 @@
 package com.example.search.blogSearch.infrastructure.rest.dto;
 
-import java.time.LocalDateTime;
 import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@NoArgsConstructor
-public class KakaoSearchResponseDto {
+@Builder
+@AllArgsConstructor
+public class SearchResultDto {
 
   private MetaResponseDto meta;
 
@@ -26,8 +28,7 @@ public class KakaoSearchResponseDto {
 
     private String thumbnail; //검색 시스템에서 추출한 대표 미리보기 이미지 URL, 미리보기 크기 및 화질은 변경될 수 있음
 
-    private LocalDateTime datetime; //블로그 글 작성 시간
-
+    private String datetime; //블로그 글 작성 시간
 
   }
 

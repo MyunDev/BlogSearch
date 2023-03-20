@@ -32,4 +32,4 @@ endpoint:
   kakao:
     host: https://dapi.kakao.com
   naver:
-    host: localhost:3003/naver/
+    host: https://openapi.naver.com

@@ -1,7 +1,4 @@
-package com.example.search.blogSearch.domain.service.dto;
-
-import static com.example.search.blogSearch.constants.SearchSourceType.KAKAO_SOURCE;
-import static com.example.search.blogSearch.constants.SearchSourceType.NAVER_SOURCE;
+package com.example.search.blogSearch.infrastructure.rest.dto;
 
 import com.example.search.blogSearch.constants.SearchSourceType;
 import com.example.search.blogSearch.domain.exceptions.InvalidSearchSourceTypeException;

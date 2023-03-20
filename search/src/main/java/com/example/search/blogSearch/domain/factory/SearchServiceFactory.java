@@ -21,7 +21,8 @@ public class SearchServiceFactory {
     managersSet.forEach(manager -> {
       if (manager.getSearchSourceType() == SearchSourceType.KAKAO_SOURCE) {
         services.put(manager.getSearchSourceType(), manager);
-      } else {
+      }
+      if (manager.getSearchSourceType() == SearchSourceType.NAVER_SOURCE) {
         services.put(manager.getSearchSourceType(), manager);
       }
     });

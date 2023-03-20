@@ -1,6 +1,6 @@
 package com.example.search.blogSearch.interfaces.rest.dto;
 
-import com.example.search.blogSearch.domain.service.dto.SearchResultDto;
+import com.example.search.blogSearch.infrastructure.rest.dto.SearchResultTestDto;
 import java.util.List;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,13 +21,13 @@ public class BlogSearchResponseDto {
 
   private String lastPage;
 
-  private Integer totalPage;
+  private Integer totalPage; //총 페이지 수
 
-  private Integer totalCount;
+  private Integer totalCount; //총 검색 된 데이터 수
 
-  private Integer pageableCount;
+//  private Integer pageableCount;
 
-  private List<SearchResultDto.Documents> documents;
+  private List<SearchResultTestDto.Documents> documents;
 
   @Getter
   @NoArgsConstructor

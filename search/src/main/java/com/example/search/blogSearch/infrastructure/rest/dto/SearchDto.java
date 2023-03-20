@@ -1,4 +1,4 @@
-package com.example.search.blogSearch.domain.service.dto;
+package com.example.search.blogSearch.infrastructure.rest.dto;
 
 import lombok.Builder;
 import lombok.Getter;
