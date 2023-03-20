@@ -3,6 +3,7 @@ package com.example.search.blogSearch.applications.helperservice;
 import com.example.search.blogSearch.domain.model.aggregate.Keyword;
 import com.example.search.blogSearch.domain.repositories.KeywordRepository;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -28,13 +29,12 @@ public class KeywordHelper {
     return saveKey;
   }
 
-//  public Keyword addCountAndSave(Optional<Keyword> keyword) {
-//    keyword.addCount();
-//    return keywordRepository.save(keyword);
-//  }
-
   public Optional<Keyword> findByKeyword(String keyword) {
     return keywordRepository.findByKeyword(keyword);
+  }
+
+  public List<Keyword> findKeywordList(){
+    return keywordRepository.findTop10ByOrderByCountDesc();
   }
 
 }

@@ -6,6 +6,8 @@ public class BlogSearchApiUrl {
 
   public static final String API_V1 = "/v1";
   public static final String BLOG_SEARCH = "/blogSearch";
+
+  public static final String KEYWORD = "/keywordList";
   public static final String LOCAL_HOST = "https://localhost:8080";
   public static final String ENDPOINT_KAKAO_URL = "${endpoint.kakao.host}";
 
