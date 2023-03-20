@@ -1,6 +1,7 @@
 package com.example.search.blogSearch.applications.queryservices;
 
 
+import com.example.search.blogSearch.applications.helperservice.PagingHelper;
 import com.example.search.blogSearch.constants.SearchSourceType;
 import com.example.search.blogSearch.domain.factory.SearchServiceFactory;
 import com.example.search.blogSearch.domain.service.SearchService;
@@ -19,6 +20,8 @@ public class BlogSearchService {
 
   private final BlogSearchMapper blogSearchMapper;
 
+  private final PagingHelper pagingHelper;
+
   Integer totalPage = 10;
 
   private final SearchServiceFactory searchServiceFactory;
@@ -33,7 +36,8 @@ public class BlogSearchService {
     SearchService searchService = searchServiceFactory.find(SearchSourceType.KAKAO_SOURCE);
     SearchResultDto searchResultDto = searchService.search(searchDto);
 
-    return blogSearchMapper.toSearchResponseDto(searchResultDto, page, size, totalPage);
+//    blogSearchMapper.toSearchResponseDto(searchResultDto, page, size, totalPage);
+    return  pagingHelper.pagingDto(searchResultDto, page, size);
 
   }
 
