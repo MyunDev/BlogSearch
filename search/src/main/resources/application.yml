@@ -7,7 +7,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto : create #자동으로 DB 생성
+      ddl-auto : create #자동으로 DB 생성 update: 더이상 바꾸고 싶지 않을 때, # create: 자동 갱신
     properties:
       hibernate:
 #        show_sql: true #systemout으로 로그 찍힘
