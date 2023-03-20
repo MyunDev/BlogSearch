@@ -19,20 +19,4 @@ public class NaverResultDto {
   @Getter
   private List<NaverResultItemDto> items;
 
-//  @Getter
-//  @NoArgsConstructor
-//  public static class Items {
-//
-//    private String title; //블로그 포스트의 제목
-//    private String link; //블로그 포스트의 URL
-//
-//    private String description; //블로그 포스트의 내용을 요약한 패시지 정보
-//
-//    private String bloggername; //블로그 포스트가 있는 블로그의 이름
-//
-//    private String bloggerlink; //블로그 포스트가 있는 블로그의 주소
-//
-//    private String postdate; //블로그 포스트가 작성된 날짜
-//
-//  }
 }

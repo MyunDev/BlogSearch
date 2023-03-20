@@ -24,6 +24,13 @@ public class BlogSearchController {
   private final BlogSearchService blogSearchService;
 
 
+  /**
+   * 블로그 검색 API
+   * @param blogSearchRequestDto
+   * @param page
+   * @param size
+   * @return
+   */
   @PostMapping(BLOG_SEARCH)
   public BlogSearchResponseDto getBlogSearchResult(
       @RequestBody BlogSearchRequestDto blogSearchRequestDto,

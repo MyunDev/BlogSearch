@@ -3,7 +3,6 @@ package com.example.search.blogSearch.infrastructure.rest.feign;
 import static com.example.search.constants.BlogSearchApiUrl.ENDPOINT_KAKAO_URL;
 
 import com.example.search.blogSearch.infrastructure.rest.dto.KaKaoSearchResultDto;
-import com.example.search.blogSearch.infrastructure.rest.dto.SearchResultDto;
 import com.example.search.libs.utils.RequestScopeUtil;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

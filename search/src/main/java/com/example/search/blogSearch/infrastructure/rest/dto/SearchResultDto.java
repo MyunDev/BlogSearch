@@ -1,22 +1,22 @@
 package com.example.search.blogSearch.infrastructure.rest.dto;
 
+
 import java.util.List;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
 @Builder
-@AllArgsConstructor
 public class SearchResultDto {
 
-  private MetaResponseDto meta;
+  private Integer total_count; //검색된 문서 수
+
+  private Integer pageable_count; //total_count 중 노출 가능 문서 수
 
   private List<Documents> documents;
 
   @Getter
-  @NoArgsConstructor
+  @Builder
   public static class Documents {
 
     private String title; //블로그 글 제목

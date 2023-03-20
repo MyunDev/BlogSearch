@@ -4,11 +4,10 @@ import com.example.search.blogSearch.constants.SearchSourceType;
 import com.example.search.blogSearch.infrastructure.rest.dto.NaverRequestDto;
 import com.example.search.blogSearch.infrastructure.rest.dto.NaverResultDto;
 import com.example.search.blogSearch.infrastructure.rest.dto.NaverSearchDto;
-import com.example.search.blogSearch.infrastructure.rest.dto.SearchResultTestDto;
+import com.example.search.blogSearch.infrastructure.rest.dto.SearchResultDto;
 import com.example.search.blogSearch.infrastructure.rest.feign.SearchNaverFeignClient;
 import com.example.search.blogSearch.infrastructure.rest.mapper.ResultDtoMapper;
 import com.example.search.blogSearch.infrastructure.rest.mapper.SearchDtoMapper;
-import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -33,7 +32,7 @@ public class NaverSearchService implements SearchService<NaverSearchDto> {
   }
 
   @Override
-  public SearchResultTestDto search(NaverSearchDto naverSearchDto) {
+  public SearchResultDto search(NaverSearchDto naverSearchDto) {
 
     //네이버 형식으로 Request Mapping
     NaverRequestDto naverRequestDto = searchDtoMapper.toRequestDto(naverSearchDto);
@@ -43,27 +42,13 @@ public class NaverSearchService implements SearchService<NaverSearchDto> {
         naverRequestDto.getQuery(), naverRequestDto.getDisplay(), naverRequestDto.getStart(),
         naverRequestDto.getSort());
 
-    //NaverResultDto --> SearchResultTestDto 로 매핑 필요
-    //naver 검색결과의 item 들을 documents로 mapping 한다.
-//    naverResultDto.getItems().stream().map(searchDtoMapper::toDocuments);
-
-    List<SearchResultTestDto.Documents> documentsList =
-        naverResultDto.getItems().stream()
-            .map(resultDtoMapper::toDocuments)
-            .collect(Collectors.toList());
-
-    System.out.println("naver ==============" + documentsList.get(0).getUrl());
-
-    SearchResultTestDto searchResultTestDto = SearchResultTestDto.builder()
+    return SearchResultDto.builder()
         .total_count(naverResultDto.getTotal())
         .pageable_count(null)
-        .documents(naverResultDto.getItems().stream().map(resultDtoMapper::toDocuments).collect(
-            Collectors.toList()))
+        .documents(naverResultDto.getItems().stream()
+            .map(resultDtoMapper::toDocuments).collect(
+                Collectors.toList()))
         .build();
-
-//    System.out.println(
-//        "-------------------" + searchResultTestDto.getDocuments().get(0).getBlogname());
-    return searchResultTestDto;
   }
 
 }

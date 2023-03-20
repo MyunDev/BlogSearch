@@ -2,6 +2,8 @@ package com.example.search.blogSearch.infrastructure.rest.dto;
 
 import com.example.search.blogSearch.constants.SearchSourceType;
 import com.example.search.blogSearch.domain.exceptions.InvalidSearchSourceTypeException;
+import com.example.search.constants.ResponseCode;
+import com.example.search.libs.exceptions.ApiException;
 
 public class SearchDtoFactory {
 
@@ -14,7 +16,7 @@ public class SearchDtoFactory {
       case NAVER_SOURCE:
         return new NaverSearchDto(query, sort, page, size);
       default:
-        throw new InvalidSearchSourceTypeException();
+        throw new ApiException(ResponseCode.INVALID_REQUEST);
     }
 
   }

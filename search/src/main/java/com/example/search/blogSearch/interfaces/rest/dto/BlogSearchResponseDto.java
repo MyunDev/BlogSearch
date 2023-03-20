@@ -1,6 +1,6 @@
 package com.example.search.blogSearch.interfaces.rest.dto;
 
-import com.example.search.blogSearch.infrastructure.rest.dto.SearchResultTestDto;
+import com.example.search.blogSearch.infrastructure.rest.dto.SearchResultDto;
 import java.util.List;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,7 +27,7 @@ public class BlogSearchResponseDto {
 
 //  private Integer pageableCount;
 
-  private List<SearchResultTestDto.Documents> documents;
+  private List<SearchResultDto.Documents> documents;
 
   @Getter
   @NoArgsConstructor

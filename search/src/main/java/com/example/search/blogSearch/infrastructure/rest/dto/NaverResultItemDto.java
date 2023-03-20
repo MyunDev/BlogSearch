@@ -14,7 +14,6 @@ public class NaverResultItemDto {
   @JsonProperty("link")
   private String url; //블로그 포스트의 URL
 
-
   @JsonProperty("description")
   private String contents; //블로그 포스트의 내용을 요약한 패시지 정보
 

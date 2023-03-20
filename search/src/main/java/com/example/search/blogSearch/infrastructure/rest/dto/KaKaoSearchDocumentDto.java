@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class KaKaoDocumentsDto {
+public class KaKaoSearchDocumentDto {
 
   private String title; //블로그 글 제목
   private String contents; //블로그 글 요약

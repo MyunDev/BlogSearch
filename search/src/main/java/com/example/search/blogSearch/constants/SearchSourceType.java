@@ -1,6 +1,7 @@
 package com.example.search.blogSearch.constants;
 
 
+import com.example.search.blogSearch.domain.exceptions.InvalidSearchSourceTypeException;
 import com.example.search.libs.exceptions.ApiException;
 import com.google.common.collect.ImmutableMap;
 import java.util.function.Function;
@@ -30,7 +31,7 @@ public enum SearchSourceType {
 
   public static SearchSourceType findByCode(final String value) {
     if (!codes.containsKey(value)) {
-      throw new ApiException();
+      throw new InvalidSearchSourceTypeException();
     }
     return codes.get(value);
   }
