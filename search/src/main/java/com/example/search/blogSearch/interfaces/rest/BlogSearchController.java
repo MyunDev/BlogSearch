@@ -6,13 +6,13 @@ import static com.example.search.constants.BlogSearchApiUrl.BLOG_BASE_URL;
 import static com.example.search.constants.BlogSearchApiUrl.BLOG_SEARCH;
 
 import com.example.search.blogSearch.applications.queryservices.BlogSearchService;
-import com.example.search.blogSearch.domain.service.dto.SearchResultDto;
-import com.example.search.blogSearch.interfaces.rest.dto.BlogSearchListResponseDto;
 import com.example.search.blogSearch.interfaces.rest.dto.BlogSearchRequestDto;
+import com.example.search.blogSearch.interfaces.rest.dto.BlogSearchResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -25,11 +25,12 @@ public class BlogSearchController {
 
 
   @PostMapping(BLOG_SEARCH)
-  public SearchResultDto getBlogSearchResult(
-      @RequestBody BlogSearchRequestDto blogSearchRequestDto) {
+  public BlogSearchResponseDto getBlogSearchResult(
+      @RequestBody BlogSearchRequestDto blogSearchRequestDto,
+      @RequestParam("page") Integer page,
+      @RequestParam("size") Integer size) {
 
-    SearchResultDto searchResult = blogSearchService.getSearchResult();
-    return searchResult;
+    return blogSearchService.getSearchResult(blogSearchRequestDto, page, size);
 
   }
 

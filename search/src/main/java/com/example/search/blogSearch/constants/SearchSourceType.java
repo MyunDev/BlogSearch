@@ -1,6 +1,7 @@
 package com.example.search.blogSearch.constants;
 
 
+import com.example.search.libs.exceptions.ApiException;
 import com.google.common.collect.ImmutableMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -17,7 +18,7 @@ public enum SearchSourceType {
   private final String code;
   private final String typeName;
 
-  private static final ImmutableMap<String, SearchSourceType> types = ImmutableMap.copyOf(
+  private static final ImmutableMap<String, SearchSourceType> codes = ImmutableMap.copyOf(
       Stream.of(values())
           .collect(Collectors.toMap(SearchSourceType::getCode, Function.identity())));
 
@@ -27,4 +28,10 @@ public enum SearchSourceType {
     this.typeName = typeName;
   }
 
+  public static SearchSourceType findByCode(final String value) {
+    if (!codes.containsKey(value)) {
+      throw new ApiException();
+    }
+    return codes.get(value);
+  }
 }

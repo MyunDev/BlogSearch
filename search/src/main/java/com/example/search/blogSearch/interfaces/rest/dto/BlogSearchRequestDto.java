@@ -7,12 +7,7 @@ import lombok.Getter;
 public class BlogSearchRequestDto {
 
   private String query;
-
+  private String source;
   private String sort;
-
-  private Integer page;
-
-  private Integer size;
-
 
 }
