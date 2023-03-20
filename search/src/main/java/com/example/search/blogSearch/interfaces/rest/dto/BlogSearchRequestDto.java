@@ -1,9 +1,11 @@
 package com.example.search.blogSearch.interfaces.rest.dto;
 
 
+import lombok.Builder;
 import lombok.Getter;
 
 @Getter
+@Builder
 public class BlogSearchRequestDto {
 
   private String query; //검색 키워드

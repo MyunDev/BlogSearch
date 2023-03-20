@@ -30,7 +30,7 @@ public class BlogSearchResponseDto {
   private List<SearchResultDto.Documents> documents;
 
   @Getter
-  @NoArgsConstructor
+  @Builder
   public static class Documents {
 
     private String title; //블로그 글 제목
