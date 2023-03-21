@@ -26,9 +26,9 @@
 
 <br>
 
-## :blue_book: 외부 라이브러리 및 기술 스택
+## :blue_book: 사용한 라이브러리 및 기술 스택
 
-사용된 외부 라이브러리 및 기술 스택은 다음과 같습니다.
+사용된 라이브러리 및 기술 스택은 다음과 같습니다.
 
 - **SpringBoot : 2.7.9** 
 - **springCloudVersion : 2021.0.5** - OpenFeign 사용하기 위한 dependency
