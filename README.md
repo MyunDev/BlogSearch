@@ -11,7 +11,7 @@
 
 <br>
 
-## 기능 구현 사항
+## 🛠 기능 구현 사항
   - 키워드를 통해 블로그를 검색할 수 있습니다.
   
   - requestBody릍 통해 넘기는 정렬방식에 따라 결과에서 Sorting(정확도순, 최신순) 기능을 지원 합니다.
@@ -26,19 +26,15 @@
 
 <br>
 
-## :blue_book: Package
+## :blue_book: 외부 라이브러리 및 기술 스택
 
-사용한 외부 라이브러리는 다음과 같습니다.
+사용된 외부 라이브러리 및 기술 스택은 다음과 같습니다.
 
-- **nodemailer** - 회원 가입 시 이메일 인증을 위한 이메일 전송
-- **jsonwebtoken** - JWT(Json Web Token) 생성 및 인증
-- **rand-token** - 랜덤으로 Token 생성
-- **pbkdf2** - 솔트를 적용한 후 해시 함수의 반복 횟수를 임의로 선택
-- **mongoose** - 몽고DB ODM 문서를 DB에서 조회할 때 자바스크립트 객체로 바꿔주는 역할
-- **qrcode** - QR코드 생성
-- **aws-sdk** - AWS에 API를 제공
-- **multer** - 이미지 업로드
-- **multer-s3** - 이미지 S3에 업로드
-- **moment** - 출석체크, 피드백 제출 날짜 포맷
-- **socket.io** - websocket 프로토콜을 지원하는 네트워킹 라이브러리
-- **connect** - RESTful Web Services를 쉽게 사용
+- **SpringBoot : 2.7.9** 
+- **springCloudVersion : 2021.0.5** - OpenFeign 사용하기 위한 dependency
+- **springCloudAwsVersion : 2.4.2** - OpenFeign 사용하기 위한 dependency
+- **lombokVersion : 1.18.24** - MapStruct 사용위한 dependency
+- **lombokMapstructBindVersion : 0.2.0** - MapStruct 사용위한 dependency
+- **mapStructVersion : 1.5.3.Final** - DTO 간 매핑을 위해 사용
+- **OpenFeign : 4.10.0** - 외부 API 호출을 위해 사용
+- **guava : 30.1.1-jre** - ImmutableMap 활용을 위해 추가
