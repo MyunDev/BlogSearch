@@ -8,6 +8,7 @@ import static com.example.search.constants.BlogSearchApiUrl.BLOG_SEARCH;
 import com.example.search.blogSearch.applications.queryservices.BlogSearchService;
 import com.example.search.blogSearch.interfaces.rest.dto.BlogSearchRequestDto;
 import com.example.search.blogSearch.interfaces.rest.dto.BlogSearchResponseDto;
+import java.io.UnsupportedEncodingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,7 +36,7 @@ public class BlogSearchController {
   public BlogSearchResponseDto getBlogSearchResult(
       @RequestBody BlogSearchRequestDto blogSearchRequestDto,
       @RequestParam("page") Integer page,
-      @RequestParam("size") Integer size) {
+      @RequestParam("size") Integer size) throws UnsupportedEncodingException {
 
     return blogSearchService.getSearchResult(blogSearchRequestDto, page, size);
 

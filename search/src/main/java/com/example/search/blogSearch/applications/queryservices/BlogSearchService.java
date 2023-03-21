@@ -12,6 +12,7 @@ import com.example.search.blogSearch.infrastructure.rest.dto.SearchDtoFactory;
 import com.example.search.blogSearch.infrastructure.rest.dto.SearchResultDto;
 import com.example.search.blogSearch.interfaces.rest.dto.BlogSearchRequestDto;
 import com.example.search.blogSearch.interfaces.rest.dto.BlogSearchResponseDto;
+import java.io.UnsupportedEncodingException;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ public class BlogSearchService {
   private final SearchServiceFactory searchServiceFactory;
 
   public BlogSearchResponseDto getSearchResult(BlogSearchRequestDto blogSearchRequestDto,
-      Integer page, Integer size) {
+      Integer page, Integer size) throws UnsupportedEncodingException {
 
     SearchSourceType sourceType = SearchSourceType.findByCode(blogSearchRequestDto.getSource());
     final SearchDto searchDto = SearchDtoFactory.create(sourceType, blogSearchRequestDto.getQuery(),

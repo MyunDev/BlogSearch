@@ -11,6 +11,8 @@ import com.example.search.blogSearch.infrastructure.rest.dto.SearchResultDto;
 import com.example.search.blogSearch.infrastructure.rest.feign.SearchNaverFeignClient;
 import com.example.search.blogSearch.infrastructure.rest.mapper.ResultDtoMapper;
 import com.example.search.blogSearch.infrastructure.rest.mapper.SearchDtoMapper;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -42,14 +44,16 @@ public class NaverSearchService implements SearchService<NaverSearchDto> {
   }
 
   @Override
-  public SearchResultDto search(NaverSearchDto naverSearchDto) {
+  public SearchResultDto search(NaverSearchDto naverSearchDto) throws UnsupportedEncodingException {
 
     //네이버 형식으로 Request Mapping
     NaverRequestDto naverRequestDto = searchDtoMapper.toRequestDto(naverSearchDto);
 
+    String encodedText = URLEncoder.encode(naverSearchDto.getQuery(), "UTF-8");
+
     NaverResultDto naverResultDto = searchNaverFeignClient.getSearchResult(naverClientIdTest,
         naverClientSecretTest,
-        naverRequestDto.getQuery(), naverRequestDto.getDisplay(), naverRequestDto.getStart(),
+        encodedText, naverRequestDto.getDisplay(), naverRequestDto.getStart(),
         naverRequestDto.getSort());
 
     return SearchResultDto.builder()
