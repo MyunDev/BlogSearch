@@ -1,5 +1,6 @@
 package com.example.search.blogSearch.applications.helperservice;
 
+import com.example.search.blogSearch.domain.exceptions.KeywordInfoNotExistException;
 import com.example.search.blogSearch.domain.model.aggregate.Keyword;
 import com.example.search.blogSearch.domain.repositories.KeywordRepository;
 import java.time.LocalDateTime;

@@ -1,6 +1,7 @@
 package com.example.search.blogSearch.applications.queryservices;
 
 import com.example.search.blogSearch.applications.helperservice.KeywordHelper;
+import com.example.search.blogSearch.domain.exceptions.KeywordInfoNotExistException;
 import com.example.search.blogSearch.domain.model.aggregate.Keyword;
 import com.example.search.blogSearch.interfaces.rest.dto.KeywordListResponseDto;
 import com.example.search.blogSearch.interfaces.rest.mapper.KeywordMapper;
@@ -20,6 +21,8 @@ public class KeywordListService {
   public KeywordListResponseDto getKeywordList() {
 
     List<Keyword> keywordList = keywordHelper.findKeywordList();
+
+    if(keywordList.isEmpty()) throw new KeywordInfoNotExistException();
 
     List<KeywordListResponseDto.KeywordResponse> resultList
         = keywordList.stream()
