@@ -1,4 +1,4 @@
-package com.example.search.libs.exceptions;
+package com.example.search.exceptions;
 
 import static com.example.search.constants.ResponseCode.SERVER_ERROR;
 

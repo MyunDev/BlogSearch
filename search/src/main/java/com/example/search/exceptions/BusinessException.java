@@ -1,4 +1,4 @@
-package com.example.search.libs.exceptions;
+package com.example.search.exceptions;
 
 import com.example.search.constants.ResponseCode;
 import lombok.Getter;

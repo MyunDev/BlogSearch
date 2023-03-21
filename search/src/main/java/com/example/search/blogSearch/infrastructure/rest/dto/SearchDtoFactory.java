@@ -1,9 +1,8 @@
 package com.example.search.blogSearch.infrastructure.rest.dto;
 
 import com.example.search.blogSearch.constants.SearchSourceType;
-import com.example.search.blogSearch.domain.exceptions.InvalidSearchSourceTypeException;
 import com.example.search.constants.ResponseCode;
-import com.example.search.libs.exceptions.ApiException;
+import com.example.search.exceptions.ApiException;
 
 public class SearchDtoFactory {
 

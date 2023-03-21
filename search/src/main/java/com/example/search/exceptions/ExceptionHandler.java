@@ -1,9 +1,10 @@
-package com.example.search.libs.exceptions;
+package com.example.search.exceptions;
 
 
 import static com.example.search.constants.Constants.RESULT_CODE;
 import static com.example.search.constants.Constants.RESULT_MESSAGE;
 
+import feign.FeignException.FeignClientException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import javax.servlet.http.HttpServletRequest;

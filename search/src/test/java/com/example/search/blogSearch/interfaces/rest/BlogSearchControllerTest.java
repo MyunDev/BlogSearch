@@ -77,7 +77,7 @@ class BlogSearchControllerTest {
         .totalCount(10)
         .totalPage(1)
         .nextPage("https://localhost:8080")
-        .firstPage("https://localhost:8080")
+        .currentPage("https://localhost:8080")
         .lastPage("https://localhost:8080")
         .pageSize(size)
         .pageNumber(page)

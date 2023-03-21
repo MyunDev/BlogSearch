@@ -40,7 +40,7 @@ public class PagingHelper {
     return BlogSearchResponseDto.builder()
         .pageNumber(page)
         .pageSize(size)
-        .firstPage(firstPageUrl)
+        .currentPage(firstPageUrl)
         .nextPage(nextPageUrl)
         .lastPage(lastPageUrl)
         .totalPage(totalPage)

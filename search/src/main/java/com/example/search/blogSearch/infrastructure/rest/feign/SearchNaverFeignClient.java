@@ -14,6 +14,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "SearchNaverFeignClient", url = ENDPOINT_NAVER_URL)
 public interface SearchNaverFeignClient {
 
+  /**
+   *
+   * @param naverClientId
+   * @param naverClientSecret
+   * @param query
+   * @param display
+   * @param start
+   * @param sort
+   * @return
+   */
   @GetMapping("/v1/search/blog.json")
   NaverResultDto getSearchResult(
       @RequestHeader(NAVER_CLIENT_ID) String naverClientId,

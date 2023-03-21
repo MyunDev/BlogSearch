@@ -2,7 +2,6 @@ package com.example.search.blogSearch.constants;
 
 
 import com.example.search.blogSearch.domain.exceptions.InvalidSearchSourceTypeException;
-import com.example.search.libs.exceptions.ApiException;
 import com.google.common.collect.ImmutableMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;

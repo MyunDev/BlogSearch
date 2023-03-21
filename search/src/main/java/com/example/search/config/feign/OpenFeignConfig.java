@@ -5,6 +5,8 @@ import static com.example.search.libs.utils.RequestScopeUtil.CALL_KEY;
 import static com.example.search.libs.utils.RequestScopeUtil.CALL_VAL;
 import static com.example.search.libs.utils.RequestScopeUtil.CONTENT_TYPE;
 
+import feign.codec.ErrorDecoder;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -23,5 +25,10 @@ public class OpenFeignConfig {
     };
   }
 
+  @Bean
+  @ConditionalOnMissingBean(value = ErrorDecoder.class)
+  public DefaultClientErrorDecoder commonFeignErrorDecoder() {
+    return new DefaultClientErrorDecoder();
+  }
 
 }

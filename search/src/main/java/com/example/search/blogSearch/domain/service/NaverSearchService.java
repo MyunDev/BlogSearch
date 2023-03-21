@@ -4,6 +4,7 @@ import static com.example.search.constants.Constants.NAVER_CLIENT_ID_KEY;
 import static com.example.search.constants.Constants.NAVER_CLIENT_SECRET_KEY;
 
 import com.example.search.blogSearch.constants.SearchSourceType;
+import com.example.search.blogSearch.domain.exceptions.DefaultFeignException;
 import com.example.search.blogSearch.infrastructure.rest.dto.NaverRequestDto;
 import com.example.search.blogSearch.infrastructure.rest.dto.NaverResultDto;
 import com.example.search.blogSearch.infrastructure.rest.dto.NaverSearchDto;
@@ -45,24 +46,27 @@ public class NaverSearchService implements SearchService<NaverSearchDto> {
 
   @Override
   public SearchResultDto search(NaverSearchDto naverSearchDto) throws UnsupportedEncodingException {
+    try {
+      //네이버 형식으로 Request Mapping
+      NaverRequestDto naverRequestDto = searchDtoMapper.toRequestDto(naverSearchDto);
 
-    //네이버 형식으로 Request Mapping
-    NaverRequestDto naverRequestDto = searchDtoMapper.toRequestDto(naverSearchDto);
+      String encodedText = URLEncoder.encode(naverSearchDto.getQuery(), "UTF-8");
 
-    String encodedText = URLEncoder.encode(naverSearchDto.getQuery(), "UTF-8");
+      NaverResultDto naverResultDto = searchNaverFeignClient.getSearchResult(naverClientIdTest,
+          naverClientSecretTest,
+          encodedText, naverRequestDto.getDisplay(), naverRequestDto.getStart(),
+          naverRequestDto.getSort());
 
-    NaverResultDto naverResultDto = searchNaverFeignClient.getSearchResult(naverClientIdTest,
-        naverClientSecretTest,
-        encodedText, naverRequestDto.getDisplay(), naverRequestDto.getStart(),
-        naverRequestDto.getSort());
+      return SearchResultDto.builder()
+          .total_count(naverResultDto.getTotal())
+          .pageable_count(null)
+          .documents(naverResultDto.getItems().stream()
+              .map(resultDtoMapper::toDocuments).collect(
+                  Collectors.toList()))
+          .build();
 
-    return SearchResultDto.builder()
-        .total_count(naverResultDto.getTotal())
-        .pageable_count(null)
-        .documents(naverResultDto.getItems().stream()
-            .map(resultDtoMapper::toDocuments).collect(
-                Collectors.toList()))
-        .build();
+    } catch (Exception e) {
+      throw new DefaultFeignException();
+    }
   }
-
 }
