@@ -30,6 +30,9 @@ feign:
 
 endpoint:
   kakao:
+    restApiKey: KakaoAK 0843e64cd14a049e15aea40c5451f049
     host: https://dapi.kakao.com
   naver:
+    naverClientId: W4ltIYBe53CA8UymY6Ge
+    naverClientSecret: fNctmFMBfq
     host: https://openapi.naver.com

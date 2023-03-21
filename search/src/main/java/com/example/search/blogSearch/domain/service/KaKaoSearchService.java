@@ -1,5 +1,7 @@
 package com.example.search.blogSearch.domain.service;
 
+import static com.example.search.constants.Constants.KAKAO_API_KEY;
+
 import com.example.search.blogSearch.constants.SearchSourceType;
 import com.example.search.blogSearch.infrastructure.rest.dto.KaKaoSearchResultDto;
 import com.example.search.blogSearch.infrastructure.rest.dto.KakaoSearchDto;
@@ -8,6 +10,7 @@ import com.example.search.blogSearch.infrastructure.rest.feign.SearchKakaoFeignC
 import com.example.search.blogSearch.infrastructure.rest.mapper.ResultDtoMapper;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 
@@ -19,7 +22,8 @@ public class KaKaoSearchService implements SearchService<KakaoSearchDto> {
 
   private final ResultDtoMapper resultDtoMapper;
 
-  private final String restApiKey = "KakaoAK 0843e64cd14a049e15aea40c5451f049";
+  @Value(KAKAO_API_KEY)
+  private String restApiKey;
 
   @Override
   public SearchSourceType getSearchSourceType() {
