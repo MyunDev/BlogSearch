@@ -1,5 +1,8 @@
 package com.example.search.blogSearch.domain.service;
 
+import static com.example.search.constants.Constants.NAVER_CLIENT_ID_KEY;
+import static com.example.search.constants.Constants.NAVER_CLIENT_SECRET_KEY;
+
 import com.example.search.blogSearch.constants.SearchSourceType;
 import com.example.search.blogSearch.infrastructure.rest.dto.NaverRequestDto;
 import com.example.search.blogSearch.infrastructure.rest.dto.NaverResultDto;
@@ -10,6 +13,7 @@ import com.example.search.blogSearch.infrastructure.rest.mapper.ResultDtoMapper;
 import com.example.search.blogSearch.infrastructure.rest.mapper.SearchDtoMapper;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -26,6 +30,12 @@ public class NaverSearchService implements SearchService<NaverSearchDto> {
 
   private final String naverClientSecret = "fNctmFMBfq";
 
+  @Value(NAVER_CLIENT_ID_KEY)
+  private String naverClientIdTest;
+
+  @Value(NAVER_CLIENT_SECRET_KEY)
+  public String naverClientSecretTest;
+
   @Override
   public SearchSourceType getSearchSourceType() {
     return SearchSourceType.NAVER_SOURCE;
@@ -37,8 +47,8 @@ public class NaverSearchService implements SearchService<NaverSearchDto> {
     //네이버 형식으로 Request Mapping
     NaverRequestDto naverRequestDto = searchDtoMapper.toRequestDto(naverSearchDto);
 
-    NaverResultDto naverResultDto = searchNaverFeignClient.getSearchResult(naverClientId,
-        naverClientSecret,
+    NaverResultDto naverResultDto = searchNaverFeignClient.getSearchResult(naverClientIdTest,
+        naverClientSecretTest,
         naverRequestDto.getQuery(), naverRequestDto.getDisplay(), naverRequestDto.getStart(),
         naverRequestDto.getSort());
 

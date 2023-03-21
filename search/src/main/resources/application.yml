@@ -33,6 +33,6 @@ endpoint:
     restApiKey: KakaoAK 0843e64cd14a049e15aea40c5451f049
     host: https://dapi.kakao.com
   naver:
-    naverClientId: W4ltIYBe53CA8UymY6Ge
-    naverClientSecret: fNctmFMBfq
+    clientId: W4ltIYBe53CA8UymY6Ge
+    clientSecret: fNctmFMBfq
     host: https://openapi.naver.com
