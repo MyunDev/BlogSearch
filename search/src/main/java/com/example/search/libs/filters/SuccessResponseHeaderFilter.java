@@ -6,11 +6,13 @@ import static com.example.search.constants.Constants.RESULT_MESSAGE;
 import java.io.IOException;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.example.search.constants.ResponseCode;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+@WebFilter
 public class SuccessResponseHeaderFilter extends OncePerRequestFilter {
 
   //정상 처리에 대한 메시지
