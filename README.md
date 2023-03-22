@@ -9,6 +9,8 @@
 
 * [API 명세서](https://pacific-pin-cab.notion.site/API-8fccd4c5a5864c05b7e38c73dfdb1065)</b>
 
+* executable jar file 다운로드 링크 정보 : [구글 드라이브](https://drive.google.com/file/d/1Ko3V22iBE_sHty-_wg84LH0S5tN5Db6N/view?usp=share_link) ,  [깃허브](https://github.com/MyunDev/BlogSearch/raw/main/search-0.0.1-SNAPSHOT.jar)
+
 <br>
 
 ## 🛠 기능 구현 사항
