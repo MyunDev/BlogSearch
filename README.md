@@ -35,12 +35,12 @@
 
 - **SpringBoot : 2.7.9**
 - **h2 database: 2.1.214**
-- **springCloudVersion : 2021.0.5** - OpenFeign 사용하기 위한 dependency
-- **springCloudAwsVersion : 2.4.2** - OpenFeign 사용하기 위한 dependency
+- **springCloudVersion : 2021.0.5** - Feign Client 사용하기 위한 dependency
+- **springCloudAwsVersion : 2.4.2** - Feign Client 사용하기 위한 dependency
 - **lombokVersion : 1.18.24** - MapStruct 사용위한 dependency
 - **lombokMapstructBindVersion : 0.2.0** - MapStruct 사용위한 dependency
 - **mapStructVersion : 1.5.3.Final** - DTO 간 매핑을 위해 사용
-- **OpenFeign : 4.10.0** - 외부 API 호출을 위해 사용
+- **OpenFeign : 4.10.0** - 외부 API 연동을 위해 사용
 - **guava : 30.1.1-jre** - ImmutableMap 활용을 위해 추가
 
 <br>
