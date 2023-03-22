@@ -33,7 +33,8 @@
 
 사용된 라이브러리 및 기술 스택은 다음과 같습니다.
 
-- **SpringBoot : 2.7.9** 
+- **SpringBoot : 2.7.9**
+- **h2 database: 2.1.214**
 - **springCloudVersion : 2021.0.5** - OpenFeign 사용하기 위한 dependency
 - **springCloudAwsVersion : 2.4.2** - OpenFeign 사용하기 위한 dependency
 - **lombokVersion : 1.18.24** - MapStruct 사용위한 dependency
