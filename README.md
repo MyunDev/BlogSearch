@@ -7,7 +7,7 @@
 
 * 프로젝트 기간: 2023.03.18 ~ 2023.03.22
 
-* [API 명세서](https://www.notion.so/db9403a0f49d43cbbb70a8de9930415b?pvs=4)</b>
+* [API 명세서](https://pacific-pin-cab.notion.site/API-8fccd4c5a5864c05b7e38c73dfdb1065)</b>
 
 <br>
 
