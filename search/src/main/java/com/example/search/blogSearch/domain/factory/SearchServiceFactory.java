@@ -19,12 +19,9 @@ public class SearchServiceFactory {
   public SearchServiceFactory(Set<SearchService> managersSet) {
     this.services = Maps.newHashMap();
     managersSet.forEach(manager -> {
-      if (manager.getSearchSourceType() == SearchSourceType.KAKAO_SOURCE) {
-        services.put(manager.getSearchSourceType(), manager);
-      }
-      if (manager.getSearchSourceType() == SearchSourceType.NAVER_SOURCE) {
-        services.put(manager.getSearchSourceType(), manager);
-      }
+
+      services.put(manager.getSearchSourceType(), manager);
+
     });
   }
 

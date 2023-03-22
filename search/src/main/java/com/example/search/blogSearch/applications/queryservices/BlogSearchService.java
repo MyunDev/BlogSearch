@@ -38,10 +38,11 @@ public class BlogSearchService {
     final SearchDto searchDto = SearchDtoFactory.create(sourceType, blogSearchRequestDto.getQuery(),
         blogSearchRequestDto.getSort(), page, size);
 
-    //serviceFactory를 사용하여 sourceType에 맞는 service를 불러옴
+    //serviceFactory를 사용하여 sourceType에 맞는 외부 연동 service를 불러옴
     SearchService searchService = searchServiceFactory.find(sourceType);
     SearchResultDto searchResultDto = searchService.search(searchDto);
 
+    //검색어 키워드 DB 저장
     addKeywordCount(blogSearchRequestDto);
 
     return pagingHelper.pagingDto(searchResultDto, page, size);

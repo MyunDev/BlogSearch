@@ -18,6 +18,10 @@ public class KeywordSumController {
 
   private final KeywordListService keywordListService;
 
+  /**
+   * 인기 검색어 목록 조회 API
+   * @return
+   */
   @GetMapping(KEYWORD)
   public KeywordListResponseDto getKeywordList() {
 
